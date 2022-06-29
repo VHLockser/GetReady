@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:testelogin/admin/model/todo.dart';
 
 
@@ -75,7 +76,7 @@ class DetalhesScreen extends StatelessWidget{
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
-                          lista.Nome,
+                          lista.Nome.tr,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 28.0,
@@ -91,7 +92,7 @@ class DetalhesScreen extends StatelessWidget{
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                lista.Informacao,
+                lista.Informacao.tr,
                 style: TextStyle(fontSize: 22.0),
                 textAlign: TextAlign.center,
               ),

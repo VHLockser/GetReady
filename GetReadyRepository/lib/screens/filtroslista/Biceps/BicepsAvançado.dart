@@ -27,7 +27,7 @@ class _TTodoListWidget extends State<BicepsAdvanced> {
         title: Container(
           alignment: Alignment.center,
           child: Text(
-              "Exercícios de Biceps".tr,
+              "Bíceps: Nível Avançado".tr,
               style: TextStyle(fontSize: 22, color: Colors.white)
           ),
         ),

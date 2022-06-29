@@ -3,7 +3,6 @@ import 'package:testelogin/admin/api/firebase_api.dart';
 import 'package:testelogin/admin/model/todo.dart';
 import 'package:testelogin/admin/page/home_page.dart';
 import 'package:testelogin/admin/provider/todos.dart';
-import 'package:testelogin/admin/widget/todo_list_widget.dart';
 import 'package:testelogin/pags/cron.dart';
 import 'package:testelogin/pags/inicio.dart';
 import 'package:testelogin/pags/profile.dart';
@@ -22,7 +21,7 @@ class Home extends StatefulWidget{
 class _HomeState extends State<Home>{
 
   int currenTab=1;
-  static const List<Widget> screens = [
+  static List<Widget> screens = [
     TTodoListWidget(),
     Inicio(),
     CountdownPage(),
@@ -58,15 +57,19 @@ class _HomeState extends State<Home>{
         },
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(10),
         child: Material(
           elevation: 10,
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.red,
+          borderRadius: BorderRadius.circular(30),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
-              color: currenTab == currenTab ? Colors.red: Colors.grey ,
+              gradient: LinearGradient(
+                  colors:[
+                    Colors.redAccent,
+                    Colors.pinkAccent,
+                  ]
+              ),
             ),
             height:50,
 
@@ -80,7 +83,7 @@ class _HomeState extends State<Home>{
                           minWidth: 80,
                           onPressed: (){
                             setState((){
-                              currentScreen = TodoListWidget();
+                              currentScreen = TTodoListWidget();
                               currenTab = 0;
                             });
                           },
@@ -91,7 +94,7 @@ class _HomeState extends State<Home>{
                                 'assets/images/bib.png',
                                 width: 30,
                                 height: 30,
-                                color: currenTab == 0 ? Colors.black : Colors.black,
+                                color: currenTab == 0 ? Colors.white : Colors.black,
                               ),
                             ],
                           ),
@@ -111,7 +114,7 @@ class _HomeState extends State<Home>{
                                 'assets/images/corrida.png',
                                 width: 30,
                                 height: 30,
-                                color: currenTab == 0 ? Colors.black : Colors.black,
+                                color: currenTab == 1 ? Colors.white  : Colors.black,
                               ),
                             ],
                           ),
@@ -138,7 +141,7 @@ class _HomeState extends State<Home>{
                                 'assets/images/cronometro.png',
                                 width: 30,
                                 height: 30,
-                                color: currenTab == 0 ? Colors.black: Colors.black,
+                                color: currenTab == 2 ? Colors.white  : Colors.black,
                               ),
                             ],
                           ),
@@ -158,7 +161,7 @@ class _HomeState extends State<Home>{
                                 'assets/images/users.png',
                                 width: 30,
                                 height: 30,
-                                color: currenTab == 0 ? Colors.black : Colors.black,
+                                color: currenTab == 3 ? Colors.white  : Colors.black,
                               ),
                             ],
                           ),

@@ -25,7 +25,7 @@ class _TTodoListWidget extends State<OmbrosBegginer> {
         title: Container(
           alignment: Alignment.center,
           child: Text(
-              "Exercícios de Ombros".tr,
+              "Ombros: Nível Iniciante".tr,
               style: TextStyle(fontSize: 22, color: Colors.white)
           ),
         ),

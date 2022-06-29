@@ -8,19 +8,22 @@ import 'package:testelogin/screens/filtroslista/Peito/PeitoIniciante.dart';
 import 'package:testelogin/screens/filtroslista/Peito/PeitoMedio.dart';
 
 import '../../ListaCompleta.dart';
+import 'AbdomensAvançado.dart';
+import 'AbdomensIniciante.dart';
+import 'AbdomensMedio.dart';
 
-class PeitoLista extends StatefulWidget{
-  const PeitoLista({Key key}) : super(key: key);
+class AbsLista extends StatefulWidget{
+  const AbsLista({Key key}) : super(key: key);
 
   @override
   _TTodoListWidget createState() => _TTodoListWidget();
 }
 
-class _TTodoListWidget extends State<PeitoLista> {
+class _TTodoListWidget extends State<AbsLista> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<TodosProvider>(context);
-    var todos = provider.Peito;
+    var todos = provider.Abs;
 
     return Scaffold(
       appBar: AppBar(
@@ -28,7 +31,7 @@ class _TTodoListWidget extends State<PeitoLista> {
         title: Container(
           alignment: Alignment.center,
           child: Text(
-              "Exercícios de Peito".tr,
+              "Exercícios de Abdominais".tr,
               style: TextStyle(fontSize: 22, color: Colors.white)
           ),
         ),
@@ -63,7 +66,7 @@ class _TTodoListWidget extends State<PeitoLista> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => PeitoBegginer(),)
+                              builder: (context) => AbsBegginer(),)
                         );
                       },
                       child: Text(
@@ -94,7 +97,7 @@ class _TTodoListWidget extends State<PeitoLista> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => PeitoMedium(),)
+                              builder: (context) => AbsMedium(),)
                         );
                       },
                       child: Text(
@@ -125,7 +128,7 @@ class _TTodoListWidget extends State<PeitoLista> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => PeitoAdvanced(),)
+                              builder: (context) => AbsAdvanced(),)
                         );
                       },
                       child: Text(

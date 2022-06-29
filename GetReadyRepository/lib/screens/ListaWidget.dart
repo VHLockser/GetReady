@@ -60,17 +60,4 @@ class TTodoWidget extends StatelessWidget {
       ),
     ),
   );
-
-  void deleteTodo(BuildContext context, Todo todo) {
-    final provider = Provider.of<TodosProvider>(context, listen: false);
-    provider.removeTodo(todo);
-
-    Utils.showSnackBar(context, 'Deleted the task');
-  }
-
-  void editTodo(BuildContext context, Todo todo) => Navigator.of(context).push(
-    MaterialPageRoute(
-      builder: (context) => EditTodoPage(todo: todo),
-    ),
-  );
 }

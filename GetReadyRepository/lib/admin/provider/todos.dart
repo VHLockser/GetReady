@@ -2,19 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:testelogin/admin/api/firebase_api.dart';
 import 'package:testelogin/admin/model/todo.dart';
 
+import '../../Model/user.dart';
+
 
 class TodosProvider extends ChangeNotifier {
 
 
   List<Todo> _todos = [];
 
-  List<Todo> get BicepsCostas => _todos.where((todo)=> todo.Treino == 'Biceps e Costas')
+  List<Todo> get BicepsCostas => _todos.where((todo)=> todo.Treino == 'Biceps e Costas' && todo.Nivel == 'Iniciante')
       .toList();
 
-  List<Todo> get TricepsPeito => _todos.where((todo)=> todo.Treino == 'Triceps e Peito')
+  List<Todo> get TricepsPeito => _todos.where((todo)=> todo.Treino == 'Triceps e Peito' && todo.Nivel == 'Iniciante')
       .toList();
 
-  List<Todo> get PernasOmbros => _todos.where((todo)=> todo.Treino == 'Pernas e Ombros')
+  List<Todo> get PernasOmbros => _todos.where((todo)=> todo.Treino == 'Pernas e Ombros' && todo.Nivel == 'Iniciante')
       .toList();
 
   List<Todo> get TreinoTriceps => _todos.where((todo)=> todo.Treino == 'Triceps')
@@ -103,7 +105,7 @@ class TodosProvider extends ChangeNotifier {
 
 
 
-  List<Todo> get Ombros => _todos.where((todo)=> todo.Musculo == 'Ombros')
+  List<Todo> get Ombros => _todos.where((todo)=> todo.Musculo == 'Ombros' )
       .toList();
 
   List<Todo> get OmbrosIniciante => _todos.where((todo)=> todo.Musculo == 'Ombros' && todo.Nivel == 'Iniciante')
@@ -116,6 +118,17 @@ class TodosProvider extends ChangeNotifier {
       .toList();
 
 
+  List<Todo> get Abs => _todos.where((todo)=> todo.Musculo == 'Abdominal')
+      .toList();
+
+  List<Todo> get AbsIniciante => _todos.where((todo)=> todo.Musculo == 'Abdominal' && todo.Nivel == 'Iniciante')
+      .toList();
+
+  List<Todo> get AbsMedio => _todos.where((todo)=> todo.Musculo == 'Abdominal' && todo.Nivel == 'Intermediário')
+      .toList();
+
+  List<Todo> get AbsAvancado => _todos.where((todo)=> todo.Musculo == 'Abdominal' && todo.Nivel == 'Avançado')
+      .toList();
 
 
 
@@ -158,4 +171,12 @@ class TodosProvider extends ChangeNotifier {
     FirebaseApi.updateTodo(todo);
   }
 
+  void updateUser(Users users, String displayName, String email, String password, String phone) {
+    users.displayName = displayName;
+    users.email = email;
+    users.password = password;
+    users.phone = phone;
+
+    FirebaseApi.updateUser(users);
+  }
 }

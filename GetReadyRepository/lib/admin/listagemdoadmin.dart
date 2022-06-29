@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:testelogin/admin/page/home_page.dart';
 import 'package:testelogin/admin/provider/todos.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +14,7 @@ Future AdminLista() async {
 }
 
 class AdminListag extends StatelessWidget {
-  static final String title = 'Todo App With Firebase';
+  static final String title = 'Gestão de Exercícios'.tr;
 
   const AdminListag({Key key}) : super(key: key);
 

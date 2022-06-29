@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:testelogin/admin/provider/todos.dart';
 import 'package:testelogin/admin/widget/todo_widget.dart';
@@ -12,7 +13,7 @@ class CompletedListWidget extends StatelessWidget {
     return todos.isEmpty
         ? Center(
             child: Text(
-              'No completed tasks.',
+              'Sem Exercícios'.tr,
               style: TextStyle(fontSize: 20),
             ),
           )

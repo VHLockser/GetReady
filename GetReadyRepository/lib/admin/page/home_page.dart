@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:testelogin/admin/api/firebase_api.dart';
 import 'package:testelogin/admin/model/todo.dart';
 import 'package:testelogin/admin/provider/todos.dart';
 import 'package:testelogin/admin/widget/add_todo_dialog_widget.dart';
 import 'package:testelogin/admin/widget/completed_list_widget.dart';
-import 'package:testelogin/admin/widget/todo_list_widget.dart';
 
 import '../../Service/Auth_Service.dart';
 import '../../pags/Autenticação/login_sereen.dart';
@@ -24,14 +24,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     final tabs = [
-      TodoListWidget(),
       CompletedListWidget(),
     ];
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text("Gerenciar Exercícios"),
+        title: Text("Gerenciar Exercícios".tr),
         actions: [
           IconButton(
             icon: Icon(Icons.logout_outlined, color: Colors.white,),
@@ -54,7 +53,6 @@ class _HomePageState extends State<HomePage> {
               return Center(child: CircularProgressIndicator());
             default:
               if (snapshot.hasError) {
-                return buildText('Something Went Wrong Try later');
               } else {
                 final todos = snapshot.data;
 

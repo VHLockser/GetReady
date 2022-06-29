@@ -15,6 +15,7 @@ class Todo {
   String imagem;
   String Treino;
   String Rep;
+  var Tempo;
   bool isDone;
 
   Todo({
@@ -24,9 +25,10 @@ class Todo {
     this.Nivel = '',
     this.imagem = '',
     this.Treino = '',
+    this.Tempo = '',
     @required this.id,
     this.isDone = false,
-    this.Rep,
+    this.Rep = '',
   });
 
   static Todo fromJson(Map<String, dynamic> json) => Todo(
@@ -36,6 +38,7 @@ class Todo {
     Nivel: json['Nivel'],
     imagem: json['imagem'],
     Treino: json['Treino'],
+    Tempo: json['Tempo'],
     id: json['id'],
     isDone: json['isDone'],
     Rep: json['Rep'],
@@ -51,5 +54,6 @@ class Todo {
     'id': id,
     'isDone': isDone,
     'Rep': Rep,
+    'Tempo': Tempo,
   };
 }

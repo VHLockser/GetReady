@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 import 'package:testelogin/Model/user.dart';
 import 'package:testelogin/Service/authnotifier.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -41,9 +42,8 @@ class Authentication {
         User user = auth.currentUser;
         if (!user.emailVerified) {
           auth.signOut();
-          toast('Email ID not Verified');
+          toast('Email ID not Verified'.tr);
         } else if (user != null) {
-          print('Logged In: $user');
           authNotifier.setUser(user);
           await getUserDetails(authNotifier);
           print('done');
@@ -87,14 +87,13 @@ class Authentication {
 
         if (user != null) {
           await user.reload();
-          print("Sign up: $user");
 
           uploadUserData(users, userDataUploaded);
 
           await auth.signOut();
           authNotifier.setUser(null);
 
-          toast('Verification link is sent to ${user.email}');
+          toast('Link de Verificação de ID enviado. ${user.email}');
           Navigator.pop(context);
         }
       }

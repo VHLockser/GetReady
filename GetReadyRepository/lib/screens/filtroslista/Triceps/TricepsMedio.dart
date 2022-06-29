@@ -23,7 +23,7 @@ class _TTodoListWidget extends State<TricepsMedium> {
         title: Container(
           alignment: Alignment.center,
           child: Text(
-              "Triceps: Nível Médio".tr,
+              "Tríceps: Nível Médio".tr,
               style: TextStyle(fontSize: 22, color: Colors.white)
           ),
         ),

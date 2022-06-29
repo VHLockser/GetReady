@@ -6,8 +6,10 @@ import 'package:testelogin/admin/provider/todos.dart';
 import 'package:testelogin/screens/filtroslista/Biceps/filtrobiceps.dart';
 import 'package:testelogin/screens/filtroslista/Peito/filtropeito.dart';
 
+import 'filtroslista/Abdominais/filtroabdomen.dart';
 import 'filtroslista/Costas/filtrocostas.dart';
 import 'filtroslista/Ombros/filtrosombros.dart';
+import 'filtroslista/Pernas/filtrospernas.dart';
 import 'filtroslista/Triceps/filtrostriceps.dart';
 
 class TTodoListWidget extends StatefulWidget{
@@ -26,7 +28,16 @@ class _TTodoListWidget extends State<TTodoListWidget> {
     return Scaffold(
       appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.redAccent,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors:[
+                  Colors.redAccent,
+                  Colors.pinkAccent,
+                ]
+            ),
+          ),
+        ),
           title: Container(
             alignment: Alignment.center,
             child: Text(
@@ -57,7 +68,7 @@ class _TTodoListWidget extends State<TTodoListWidget> {
             height: 15,
           ),
           Text(
-            'Musculos'.tr,
+            'Músculos'.tr,
             style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.normal,
@@ -71,14 +82,18 @@ class _TTodoListWidget extends State<TTodoListWidget> {
               height: 30.0,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-
                 children: <Widget>[
                   SizedBox(width: 12),
                 Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-              color: Color.fromARGB(255, 166, 0, 0),
-            ),
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        colors:[
+                          Color.fromRGBO(218, 37, 96, 1.0),
+                          Color.fromRGBO(255, 49, 49, 1.0),
+                        ]
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                  ),
             width: 130.0,
             height: 55.0,
             child: MaterialButton(
@@ -90,23 +105,25 @@ class _TTodoListWidget extends State<TTodoListWidget> {
                       builder: (context) => PeitoLista(),)
                 );
               },
-              child: const Text(
-                "Peito",
+              child: Text(
+                "Peito".tr,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16.0,
                 ),
-
               ),
-
             ),
-
           ),
                   SizedBox(width: 10),
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      color: Color.fromARGB(255, 166, 0, 0),
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          colors:[
+                            Color.fromRGBO(218, 37, 96, 1.0),
+                            Color.fromRGBO(255, 49, 49, 1.0),
+                          ]
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(25.0)),
                     ),
                     width: 130.0,
                     height: 55.0,
@@ -119,8 +136,8 @@ class _TTodoListWidget extends State<TTodoListWidget> {
                               builder: (context) => BicepsLista(),)
                         );
                       },
-                      child: const Text(
-                        "Biceps",
+                      child: Text(
+                        "Bíceps".tr,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.0,
@@ -133,9 +150,14 @@ class _TTodoListWidget extends State<TTodoListWidget> {
                   ),
                   SizedBox(width: 10),
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      color: Color.fromARGB(255, 166, 0, 0),
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          colors:[
+                            Color.fromRGBO(218, 37, 96, 1.0),
+                            Color.fromRGBO(255, 49, 49, 1.0),
+                          ]
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(25.0)),
                     ),
                     width: 130.0,
                     height: 55.0,
@@ -148,8 +170,8 @@ class _TTodoListWidget extends State<TTodoListWidget> {
                               builder: (context) => CostasLista(),)
                         );
                       },
-                      child: const Text(
-                        "Costas",
+                      child: Text(
+                        "Costas".tr,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.0,
@@ -161,9 +183,14 @@ class _TTodoListWidget extends State<TTodoListWidget> {
                   ),
                   SizedBox(width: 10),
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      color: Color.fromARGB(255, 166, 0, 0),
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          colors:[
+                            Color.fromRGBO(218, 37, 96, 1.0),
+                            Color.fromRGBO(255, 49, 49, 1.0),
+                          ]
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(25.0)),
                     ),
                     width: 130.0,
                     height: 55.0,
@@ -176,8 +203,8 @@ class _TTodoListWidget extends State<TTodoListWidget> {
                               builder: (context) => OmbrosLista(),)
                         );
                       },
-                      child: const Text(
-                        "Ombros",
+                      child: Text(
+                        "Ombros".tr,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.0,
@@ -189,9 +216,14 @@ class _TTodoListWidget extends State<TTodoListWidget> {
                   ),
                   SizedBox(width: 10),
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      color: Color.fromARGB(255, 166, 0, 0),
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          colors:[
+                            Color.fromRGBO(218, 37, 96, 1.0),
+                            Color.fromRGBO(255, 49, 49, 1.0),
+                          ]
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(25.0)),
                     ),
                     width: 130.0,
                     height: 55.0,
@@ -204,8 +236,74 @@ class _TTodoListWidget extends State<TTodoListWidget> {
                               builder: (context) => TricepsLista(),)
                         );
                       },
-                      child: const Text(
-                        "Triceps",
+                      child: Text(
+                        "Tríceps".tr,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                        ),
+
+                      ),
+
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          colors:[
+                            Color.fromRGBO(218, 37, 96, 1.0),
+                            Color.fromRGBO(255, 49, 49, 1.0),
+                          ]
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                    ),
+                    width: 130.0,
+                    height: 55.0,
+                    child: MaterialButton(
+                      elevation: 10,
+                      onPressed: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PernasLista(),)
+                        );
+                      },
+                      child: Text(
+                        "Pernas".tr,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                        ),
+
+                      ),
+
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          colors:[
+                            Color.fromRGBO(218, 37, 96, 1.0),
+                            Color.fromRGBO(255, 49, 49, 1.0),
+                          ]
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                    ),
+                    width: 130.0,
+                    height: 55.0,
+                    child: MaterialButton(
+                      elevation: 10,
+                      onPressed: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AbsLista(),)
+                        );
+                      },
+                      child: Text(
+                        "Abdominais".tr,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.0,

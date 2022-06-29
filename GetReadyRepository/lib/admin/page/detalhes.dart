@@ -107,8 +107,8 @@ class App extends StatelessWidget {
                       ),
                       const Spacing(),
                       Row(
-                        children: const [
-                          TabTitle(label: 'Descrição', selected: true),
+                        children: [
+                          TabTitle(label: 'Descrição'.tr, selected: true),
                         ],
                       ),
                       const Spacing(),

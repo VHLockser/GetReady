@@ -25,7 +25,7 @@ class _TTodoListWidget extends State<CostasBegginer> {
         title: Container(
           alignment: Alignment.center,
           child: Text(
-              "Exercícios de Costas".tr,
+              "Costas: Nível Iniciante".tr,
               style: TextStyle(fontSize: 22, color: Colors.white)
           ),
         ),

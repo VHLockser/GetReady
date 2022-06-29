@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:testelogin/admin/model/todo.dart';
 import 'package:testelogin/admin/provider/todos.dart';
@@ -28,7 +29,7 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Adicionar Exercício',
+                  'Adicionar Exercício'.tr,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 22,

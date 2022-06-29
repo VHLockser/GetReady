@@ -115,7 +115,7 @@ class _LandingPageState extends State<LandingPage> {
                     ? Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (_) => LoginScreen()))
                     : (authNotifier.userDetails == null)
-                    ? print('wait')
+                    ? print('Espere')
                     : (authNotifier.userDetails.role == 'admin')
                     ? Navigator.pushReplacement(
                     context,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:testelogin/admin/model/todo.dart';
 import 'package:testelogin/admin/page/edit_todo_page.dart';
@@ -26,14 +27,14 @@ class TodoWidget extends StatelessWidget {
             IconSlideAction(
               color: Colors.green,
               onTap: () => editTodo(context, todo),
-              caption: 'Editar',
+              caption: 'Editar'.tr,
               icon: Icons.edit,
             )
           ],
           secondaryActions: [
             IconSlideAction(
               color: Colors.red,
-              caption: 'Deletar',
+              caption: 'Deletar'.tr,
               onTap: () => deleteTodo(context, todo),
               icon: Icons.delete,
             )
@@ -58,11 +59,6 @@ class TodoWidget extends StatelessWidget {
                   final provider =
                       Provider.of<TodosProvider>(context, listen: false);
                   final isDone = provider.toggleTodoStatus(todo);
-
-                  Utils.showSnackBar(
-                    context,
-                    isDone ? 'Task completed' : 'Task marked incomplete',
-                  );
                 },
               ),
               const SizedBox(width: 20),
@@ -71,7 +67,7 @@ class TodoWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      todo.Nome,
+                      todo.Nome.tr,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).primaryColor,
@@ -82,7 +78,7 @@ class TodoWidget extends StatelessWidget {
                       Container(
                         margin: EdgeInsets.only(top: 4),
                         child: Text(
-                          todo.Musculo,
+                          todo.Musculo.tr,
                           style: TextStyle(fontSize: 20, height: 1.5),
                         ),
                       )
@@ -99,7 +95,6 @@ class TodoWidget extends StatelessWidget {
     final provider = Provider.of<TodosProvider>(context, listen: false);
     provider.removeTodo(todo);
 
-    Utils.showSnackBar(context, 'Deleted the task');
   }
 
   void editTodo(BuildContext context, Todo todo) => Navigator.of(context).push(

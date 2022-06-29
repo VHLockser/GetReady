@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testelogin/pags/IMC/bmi_screen.dart';
 import 'package:testelogin/pags/treinoporgrupomuscular.dart';
-import 'package:testelogin/pags/treinoprefeito.dart';
-import 'package:testelogin/functions.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
-Functions func = Functions();
+import 'package:testelogin/pags/TreinoPrefeitos/treinoprefeito.dart';
 
 class Inicio extends StatefulWidget{
   const Inicio({Key key}) : super(key: key);
@@ -25,12 +21,21 @@ class _ChatState extends State<Inicio>{
         backgroundColor: Colors.white,
         appBar: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: Colors.redAccent,
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors:[
+                      Colors.redAccent,
+                      Colors.pinkAccent,
+                    ]
+                ),
+              ),
+            ),
             title: Container(
               alignment: Alignment.bottomCenter,
               child: const Text(
                   "GET READY",
-                  style: TextStyle(fontSize: 22, color: Colors.black87)
+                  style: TextStyle(fontSize: 22, color: Colors.white)
               ),
             )
         ),
@@ -39,13 +44,6 @@ class _ChatState extends State<Inicio>{
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(13),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.redAccent[200],
-                    blurRadius: 10,
-                    spreadRadius: 4,
-                    offset: Offset(1, 2))
-              ]
           ),
           margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
           width: 500,
@@ -74,18 +72,33 @@ class _ChatState extends State<Inicio>{
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   RaisedButton(
-                      elevation: 0.0,
+                      elevation: 10.0,
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0)),
                       padding: const EdgeInsets.only(
-                          top: 0.0, bottom: 5.0, right: 0.0, left: 0.0),
+                          top: 0.0, bottom: 0.0, right: 0.0, left: 0.0),
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => CategoryLista()),
                         );
                       },
+
+                      textColor: const Color(0xFF292929),
+                      color: Colors.redAccent,
+                    child: Ink(
+                      padding: const EdgeInsets.only(
+                          top: 0.0, bottom: 5.0, right: 0.0, left: 0.0),
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                            colors:[
+                              Colors.redAccent,
+                              Colors.pinkAccent,
+                            ]
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                      ),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
@@ -98,28 +111,40 @@ class _ChatState extends State<Inicio>{
                           const SizedBox(height: 4),
                           Text(
                             'Treinos pré-feitos'.tr,
-                            style: TextStyle(fontSize: 22, color: Colors.black87),
+                            style: TextStyle(fontSize: 22, color: Colors.white),
                           )
                         ],
                       ),
-                      textColor: const Color(0xFF292929),
-                      color: Colors.redAccent),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        left: 0.0, right: 0.0, top: 40.0, bottom: 0.0),
-                    child: RaisedButton(
-                        elevation: 0.0,
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                   RaisedButton(
+                        elevation: 10.0,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0)),
                         padding: const EdgeInsets.only(
-                            top: 0.0, bottom: 5.0, right: 0.0, left: 0.0),
+                            top: 0.0, bottom: 0.0, right: 0.0, left: 0.0),
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => CategoryListb()),
                           );
                         },
+
+                        textColor: const Color(0xFF292929),
+                      child: Ink(
+                        padding: const EdgeInsets.only(
+                            top: 0.0, bottom: 5.0, right: 0.0, left: 0.0),
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                              colors:[
+                                Colors.redAccent,
+                                Colors.pinkAccent,
+                              ]
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
@@ -132,13 +157,12 @@ class _ChatState extends State<Inicio>{
                             const SizedBox(height: 4),
                             Text(
                               'Treinos por categoria muscular'.tr,
-                              style: TextStyle(fontSize: 22, color: Colors.black87),
+                              style: TextStyle(fontSize: 22, color: Colors.white),
                             )
                           ],
                         ),
-                        textColor: const Color(0xFF292929),
-                        color: Colors.redAccent),
-                  ),
+                      ),
+                    ),
                 ],
               )
             ],

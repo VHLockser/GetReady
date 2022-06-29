@@ -1,20 +1,72 @@
+import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:testelogin/admin/model/todo.dart';
 import 'package:testelogin/admin/page/detailsteste.dart';
 import 'package:testelogin/admin/page/detalhes.dart';
 import 'package:testelogin/codsupl/round_info_container.dart';
-import 'package:testelogin/treinos/workout_data.dart';
 import 'package:provider/provider.dart';
 import 'package:testelogin/admin/provider/todos.dart';
 import 'package:get/get.dart';
 
-class Workout_Screen extends StatelessWidget{
+class Workout_Screen extends StatefulWidget {
+
+  const Workout_Screen({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _Workout_Screen createState() => _Workout_Screen();
+}
+
+class _Workout_Screen extends State<Workout_Screen>with TickerProviderStateMixin {
+
+  AnimationController controller;
+
+  bool isPlaying = false;
+
+  String get countText {
+    Duration count = controller.duration * controller.value;
+    return controller.isDismissed
+        ? '${(controller.duration.inMinutes % 60).toString().padLeft(2, '0')}:${(controller.duration.inSeconds % 60).toString().padLeft(2, '0')}'
+        : '${(count.inMinutes % 60).toString().padLeft(2, '0')}:${(count.inSeconds % 60).toString().padLeft(2, '0')}';
+  }
+
+  double progress = 1.0;
+  @override
+  void initState() {
+
+    super.initState();
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 45),
+    );
+
+    controller.addListener(() {
+      if (controller.isAnimating) {
+        setState(() {
+          progress = controller.value;
+        });
+      } else {
+        setState(() {
+          progress = 1.0;
+          isPlaying = false;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context){
     final provider = Provider.of<TodosProvider>(context);
     final todos = provider.BicepsCostas;
-
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -41,28 +93,6 @@ class Workout_Screen extends StatelessWidget{
                     child: Container(
                       color: Colors.white.withOpacity(.123),
                     ),
-                  ),
-                ),
-                Positioned(
-                  top: 20,
-                  left: 10,
-                  right: 10,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.chevron_left),
-                        iconSize: 30,
-                        color: Colors.transparent,
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.favorite),
-                        iconSize: 30,
-                        color: Colors.white,
-                        onPressed: () {},
-                      ),
-                    ],
                   ),
                 ),
                 Positioned(
@@ -112,40 +142,79 @@ class Workout_Screen extends StatelessWidget{
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Exercicios'.tr, style: TextStyle(fontSize: 17.0),),
-                  Text('Info+',style: TextStyle(fontSize: 17.0),),
+                  Text('Exercicios'.tr, style: TextStyle(fontSize: 17.0, fontWeight: FontWeight. bold),),
+                  ElevatedButton(
+                      style: ButtonStyle(
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  side: BorderSide(color: Colors.red)
+                              )
+                          )
+
+                      ),
+                    onPressed: () {
+                      if (controller.isAnimating) {
+                        controller.stop();
+                        setState(() {
+                          isPlaying = false;
+                        });
+                      } else {
+                        controller.reverse(
+                            from: controller.value == 0 ? 1.0 : controller.value);
+                        setState(() {
+                          isPlaying = true;
+                        });
+                      }
+                    },
+                    child: Text(
+                      countText,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 20),
+                    ),
+                  ),
+
+                  Text('Info+',style: TextStyle(fontSize: 17.0, fontWeight: FontWeight. bold)),
                 ],
               ),
             ),
-            Expanded(child:
-            ListView.builder(
+            Expanded(
+              child: ListView.builder(
               physics: BouncingScrollPhysics(),
               itemCount: todos.length,
               itemBuilder: (BuildContext context, int index){
                 Todo dataexerc = todos[index];
+
                 return Card(
-                  child: ListTile(
-                    isThreeLine: true,
-                    leading: Container(
-                      width: 90.0,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(dataexerc.imagem),
-                          fit: BoxFit.cover,
+                  child: Column(
+                    children: [
+                      ListTile(
+                        isThreeLine: true,
+                        leading: Container(
+                          width: 90.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(dataexerc.imagem),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                         ),
-                        borderRadius: BorderRadius.circular(10.0),
+                        title: Text(dataexerc.Nome.tr),
+                        subtitle: Text(dataexerc.Musculo.tr),
+                        trailing: Icon(Icons.arrow_forward_ios_rounded, color: Colors.red,),
+                        onTap:(){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder:(context) => App(dataexerc))
+                          );
+                        },
                       ),
-                    ),
-                    title: Text(dataexerc.Nome.tr),
-                    subtitle: Text(dataexerc.Musculo.tr),
-                    trailing: Icon(Icons.arrow_forward_ios_rounded),
-                    onTap:(){
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder:(context) => App(dataexerc))
-                      );
-                    },
+                    ],
                   ),
+
                 );
               },
             ),

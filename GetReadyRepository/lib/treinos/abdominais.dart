@@ -2,15 +2,15 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:testelogin/admin/page/detalhes.dart';
 import 'package:testelogin/codsupl/round_info_container.dart';
 
 import '../admin/model/todo.dart';
+import '../admin/page/detalhes.dart';
 import '../admin/provider/todos.dart';
 
-class Biceps extends StatefulWidget {
+class Abs extends StatefulWidget {
 
-  const Biceps({
+  const Abs({
     Key key,
   }) : super(key: key);
 
@@ -18,7 +18,7 @@ class Biceps extends StatefulWidget {
   _Workout_Screen createState() => _Workout_Screen();
 }
 
-class _Workout_Screen extends State<Biceps>with TickerProviderStateMixin {
+class _Workout_Screen extends State<Abs>with TickerProviderStateMixin {
 
   AnimationController controller;
 
@@ -61,11 +61,10 @@ class _Workout_Screen extends State<Biceps>with TickerProviderStateMixin {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context){
     final provider = Provider.of<TodosProvider>(context);
-    final todos = provider.Biceps;
+    final todos = provider.Abs;
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -78,7 +77,7 @@ class _Workout_Screen extends State<Biceps>with TickerProviderStateMixin {
                   height: 370.0,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/exercicios/biceps.png'),
+                      image: AssetImage('assets/exercicios/abs.png'),
                       fit: BoxFit.cover,
                       alignment: Alignment.center,
                     ),
@@ -126,7 +125,7 @@ class _Workout_Screen extends State<Biceps>with TickerProviderStateMixin {
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
                         child: Text(
-                          'FULL - Biceps\nTreino'.tr,
+                          'FULL - Abdominais\nTreino'.tr,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 28.0,
@@ -221,7 +220,7 @@ class _Workout_Screen extends State<Biceps>with TickerProviderStateMixin {
                     ),
                     title: Text(dataexerc.Nome.tr),
                     subtitle: Text(dataexerc.Nivel.tr),
-                    trailing: Icon(Icons.arrow_forward_ios_rounded, color: Colors.red,),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded, color: Colors.red),
                     onTap:(){
                       Navigator.push(
                           context,

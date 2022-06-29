@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:testelogin/admin/model/todo.dart';
 import 'package:testelogin/admin/provider/todos.dart';
@@ -39,7 +40,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text('Editar Exercício'),
+          title: Text('Editar Exercício'.tr),
           actions: [
             IconButton(
               icon: Icon(Icons.delete),

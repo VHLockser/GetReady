@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:testelogin/admin/model/todo.dart';
 import 'package:testelogin/admin/utils.dart';
 
+import '../../Model/user.dart';
+
 class FirebaseApi {
   static Future<String> createTodo(Todo todo) async {
     final docTodo = FirebaseFirestore.instance.collection('Exercicios').doc();
@@ -21,6 +23,12 @@ class FirebaseApi {
     final docTodo = FirebaseFirestore.instance.collection('Exercicios').doc(todo.id);
 
     await docTodo.update(todo.toJson());
+  }
+
+  static Future updateUser(Users users) async {
+    final docTodo = FirebaseFirestore.instance.collection('users').doc(users.uuid);
+
+    await docTodo.update(users.toMap());
   }
 
   static Future deleteTodo(Todo todo) async {

@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:testelogin/Model/user.dart';
 import 'package:testelogin/Service/auth.dart';
 import 'package:testelogin/Service/authnotifier.dart';
@@ -49,19 +50,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
     AuthNotifier authNotifier =
     Provider.of<AuthNotifier>(context, listen: false);
     if (_users.displayName.length < 3) {
-      toast("Name must have atleast 3 characters");
+      toast("Nome precisa ter no mínimo 3 caracteres".tr);
     } else if (!regExp.hasMatch(_users.email)) {
-      toast("Enter a valid Email ID");
+      toast("Insira um Email válido".tr);
     } else if (_users.phone.length != 9) {
-      toast("Contact number length must be 10");
+      toast("Número de Contato precisa ter 9 números.".tr);
     } else if (int.tryParse(_users.phone) == null) {
-      toast("Contact number must be a number");
+      toast("Número de Contato precisa ser um número".tr);
     } else if (_users.password.length < 8) {
-      toast("Password must have atleast 8 characters");
+      toast("A senha precisa ter no mínimo 8 caracteres".tr);
     } else if (_passwordController.text.toString() != _users.password) {
-      toast("Confirm password does'nt match your password");
+      toast("A senha de confirmação não é igual à sua senha".tr);
     } else {
-      print("Success");
+      print("Feito!");
       _users.role = "user";
       _authentication.signup(_users, authNotifier, context);
     }
@@ -131,7 +132,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Column(
       children: [
         Text(
-          "Registar",
+          "Registar".tr,
           style: TextStyle(
             fontSize: 25,
             color: Colors.black,
@@ -172,7 +173,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             cursorColor: Colors.white,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
-              hintText: 'User Name',
+              hintText: 'Nome de Utilizador'.tr,
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Color.fromRGBO(255, 255, 255, 0.8352941176470589),
@@ -269,7 +270,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             cursorColor: Color.fromRGBO(255, 255, 255, 0.8352941176470589),
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
-              hintText: 'Contact Number',
+              hintText: 'Número de Telemóvel'.tr,
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Color.fromRGBO(255, 255, 255, 0.8352941176470589),
@@ -328,7 +329,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   }),
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
-              hintText: 'Password',
+              hintText: 'Senha'.tr,
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Color.fromRGBO(255, 255, 255, 0.8352941176470589),
@@ -388,7 +389,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   }),
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
-              hintText: 'Confirm Password',
+              hintText: 'Confirme a senha'.tr,
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Color.fromRGBO(255, 255, 255, 0.8352941176470589),
@@ -431,7 +432,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               borderRadius: BorderRadius.circular(30),
             ),
             child: Text(
-              "Registar",
+              "Registar".tr,
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white,
@@ -447,7 +448,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Já Possui uma conta?',
+              'Já Possui uma conta?'.tr,
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 16,

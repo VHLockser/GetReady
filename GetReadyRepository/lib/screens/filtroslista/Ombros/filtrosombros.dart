@@ -42,79 +42,96 @@ class _TTodoListWidget extends State<OmbrosLista> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
+                  SizedBox(width: 12),
                   Container(
-                    height: 10,
-                    width: 160.0,
-                    padding: const EdgeInsets.only(
-                        top: 0.0, bottom: 0.0, right: 15.0, left: 15.0),
-                    child: RaisedButton(
-                      elevation: 0.0,
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      padding: const EdgeInsets.only(
-                          top: 5.0, bottom: 5.0, right: 0.0, left: 0.0),
-                      onPressed: () {
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          colors:[
+                            Color.fromRGBO(218, 37, 96, 1.0),
+                            Color.fromRGBO(255, 49, 49, 1.0),
+                          ]
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                    ),
+                    width: 130.0,
+                    height: 55.0,
+                    child: MaterialButton(
+                      elevation: 10,
+                      onPressed: (){
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => OmbrosBegginer()),
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OmbrosBegginer(),)
                         );
                       },
-                      child: Column(
-                        children: const <Widget>[
-                          SizedBox(height: 1),
-                          Text('Iniciante'),
-                        ],
+                      child: Text(
+                        "Iniciante".tr,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                        ),
                       ),
                     ),
                   ),
+                  SizedBox(width: 12),
                   Container(
-                    width: 160.0,
-                    padding: const EdgeInsets.only(
-                        top: 0.0, bottom: 0.0, right: 15.0, left: 15.0),
-                    child: RaisedButton(
-                      elevation: 0.0,
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      padding: const EdgeInsets.only(
-                          top: 5.0, bottom: 5.0, right: 0.0, left: 0.0),
-                      onPressed: () {
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          colors:[
+                            Color.fromRGBO(218, 37, 96, 1.0),
+                            Color.fromRGBO(255, 49, 49, 1.0),
+                          ]
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                    ),
+                    width: 130.0,
+                    height: 55.0,
+                    child: MaterialButton(
+                      elevation: 10,
+                      onPressed: (){
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => OmbrosMedium()),
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OmbrosMedium(),)
                         );
                       },
-                      child: Column(
-                        children: const <Widget>[
-                          SizedBox(height: 1),
-                          Text('Médio'),
-                        ],
+                      child: Text(
+                        "Intermediário".tr,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                        ),
                       ),
                     ),
                   ),
+                  SizedBox(width: 12),
                   Container(
-                    width: 160.0,
-                    padding: const EdgeInsets.only(
-                        top: 0.0, bottom: 0.0, right: 15.0, left: 15.0),
-                    child: RaisedButton(
-                      elevation: 0.0,
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      padding: const EdgeInsets.only(
-                          top: 5.0, bottom: 5.0, right: 0.0, left: 0.0),
-                      onPressed: () {
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                          colors:[
+                            Color.fromRGBO(218, 37, 96, 1.0),
+                            Color.fromRGBO(255, 49, 49, 1.0),
+                          ]
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                    ),
+                    width: 130.0,
+                    height: 55.0,
+                    child: MaterialButton(
+                      elevation: 10,
+                      onPressed: (){
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => OmbrosAdvanced()),
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OmbrosAdvanced(),)
                         );
                       },
-                      child: Column(
-                        children: const <Widget>[
-                          SizedBox(height: 1),
-                          Text('Avançado'),
-                        ],
+                      child: Text(
+                        "Avançado".tr,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                        ),
                       ),
                     ),
                   ),
@@ -134,7 +151,8 @@ class _TTodoListWidget extends State<OmbrosLista> {
                 var todo = todos[index];
                 return TTodoWidget(todo: todo);
               },
-            ), )
+            ),
+          )
         ],
       ),
 

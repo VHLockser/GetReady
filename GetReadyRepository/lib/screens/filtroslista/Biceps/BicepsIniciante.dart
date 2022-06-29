@@ -27,7 +27,7 @@ class _TTodoListWidget extends State<BicepsBegginer> {
         title: Container(
           alignment: Alignment.center,
           child: Text(
-              "Exercícios de Biceps".tr,
+              "Bíceps: Nível Iniciante".tr,
               style: TextStyle(fontSize: 22, color: Colors.white)
           ),
         ),

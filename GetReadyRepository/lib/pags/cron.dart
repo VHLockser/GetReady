@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../codsupl//round-button.dart';
 
 class CountdownPage extends StatefulWidget {
@@ -55,6 +56,26 @@ class _CountdownPageState extends State<CountdownPage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xfff5fbff),
+      appBar: AppBar(
+          automaticallyImplyLeading: false,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors:[
+                    Colors.redAccent,
+                    Colors.pinkAccent,
+                  ]
+              ),
+            ),
+          ),
+          title: Container(
+            alignment: Alignment.bottomCenter,
+            child: Text(
+                "Cronômetro".tr,
+                style: TextStyle(fontSize: 22, color: Colors.white)
+            ),
+          )
+      ),
       body: Column(
         children: [
           Expanded(

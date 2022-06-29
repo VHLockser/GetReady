@@ -8,11 +8,63 @@ import '../admin/model/todo.dart';
 import '../admin/page/detalhes.dart';
 import '../admin/provider/todos.dart';
 
-class Costas extends StatelessWidget{
+class Costas extends StatefulWidget {
+
+  const Costas({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  _Workout_Screen createState() => _Workout_Screen();
+}
+
+class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
+
+  AnimationController controller;
+
+  bool isPlaying = false;
+
+  String get countText {
+    Duration count = controller.duration * controller.value;
+    return controller.isDismissed
+        ? '${(controller.duration.inMinutes % 60).toString().padLeft(2, '0')}:${(controller.duration.inSeconds % 60).toString().padLeft(2, '0')}'
+        : '${(count.inMinutes % 60).toString().padLeft(2, '0')}:${(count.inSeconds % 60).toString().padLeft(2, '0')}';
+  }
+
+  double progress = 1.0;
+  @override
+  void initState() {
+
+    super.initState();
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 45),
+    );
+
+    controller.addListener(() {
+      if (controller.isAnimating) {
+        setState(() {
+          progress = controller.value;
+        });
+      } else {
+        setState(() {
+          progress = 1.0;
+          isPlaying = false;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context){
     final provider = Provider.of<TodosProvider>(context);
-    final todos = provider.TreinoCostas;
+    final todos = provider.Costas;
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -111,6 +163,38 @@ class Costas extends StatelessWidget{
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Exercicios'.tr, style: TextStyle(fontSize: 17.0),),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side: BorderSide(color: Colors.red)
+                            )
+                        )
+
+                    ),
+                    onPressed: () {
+                      if (controller.isAnimating) {
+                        controller.stop();
+                        setState(() {
+                          isPlaying = false;
+                        });
+                      } else {
+                        controller.reverse(
+                            from: controller.value == 0 ? 1.0 : controller.value);
+                        setState(() {
+                          isPlaying = true;
+                        });
+                      }
+                    },
+                    child: Text(
+                      countText,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 20),
+                    ),
+                  ),
                   Text('Info+',style: TextStyle(fontSize: 17.0),),
                 ],
               ),
@@ -135,8 +219,8 @@ class Costas extends StatelessWidget{
                       ),
                     ),
                     title: Text(dataexerc.Nome.tr),
-                    subtitle: Text(dataexerc.Informacao.tr),
-                    trailing: Icon(Icons.arrow_forward_ios_rounded),
+                    subtitle: Text(dataexerc.Nivel.tr),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded, color: Colors.red),
                     onTap:(){
                       Navigator.push(
                           context,

@@ -6,18 +6,18 @@ import 'package:testelogin/admin/provider/todos.dart';
 
 import '../../ListaCompleta.dart';
 
-class OmbrosMedium extends StatefulWidget{
-  const OmbrosMedium ({Key key}) : super(key: key);
+class AbsMedium extends StatefulWidget{
+  const AbsMedium ({Key key}) : super(key: key);
 
   @override
   _TTodoListWidget createState() => _TTodoListWidget();
 }
 
-class _TTodoListWidget extends State<OmbrosMedium> {
+class _TTodoListWidget extends State<AbsMedium> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<TodosProvider>(context);
-    var todos = provider.OmbrosMedio;
+    var todos = provider.AbsMedio;
 
     return Scaffold(
       appBar: AppBar(
@@ -25,7 +25,7 @@ class _TTodoListWidget extends State<OmbrosMedium> {
         title: Container(
           alignment: Alignment.center,
           child: Text(
-              "Ombros: Nível Intermediário".tr,
+              "Abdominais: Nível Intermediário".tr,
               style: TextStyle(fontSize: 22, color: Colors.white)
           ),
         ),

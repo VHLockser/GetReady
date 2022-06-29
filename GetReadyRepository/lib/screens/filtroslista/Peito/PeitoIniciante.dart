@@ -25,7 +25,7 @@ class _TTodoListWidget extends State<PeitoBegginer> {
         title: Container(
           alignment: Alignment.center,
           child: Text(
-              "Exercícios de Peito".tr,
+              "Peito: Nível Iniciante".tr,
               style: TextStyle(fontSize: 22, color: Colors.white)
           ),
         ),

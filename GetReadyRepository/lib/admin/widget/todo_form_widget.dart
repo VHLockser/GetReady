@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TodoFormWidget extends StatelessWidget {
   final String Nome;
@@ -59,13 +60,13 @@ class TodoFormWidget extends StatelessWidget {
         onChanged: onChangedNome,
         validator: (title) {
           if (title.isEmpty) {
-            return 'The title cannot be empty';
+            return 'O Título não pode estar em branco'.tr;
           }
           return null;
         },
         decoration: InputDecoration(
           border: UnderlineInputBorder(),
-          labelText: 'Nome do Exercício',
+          labelText: 'Nome do Exercício'.tr,
         ),
       );
 
@@ -75,7 +76,7 @@ class TodoFormWidget extends StatelessWidget {
         onChanged: onChangedInformacao,
         decoration: InputDecoration(
           border: UnderlineInputBorder(),
-          labelText: 'Informação',
+          labelText: 'Informação'.tr,
         ),
       );
 
@@ -85,7 +86,7 @@ class TodoFormWidget extends StatelessWidget {
     onChanged: onChangedMusculo,
     decoration: InputDecoration(
       border: UnderlineInputBorder(),
-      labelText: 'Musculo',
+      labelText: 'Músculo'.tr,
     ),
   );
 
@@ -95,7 +96,7 @@ class TodoFormWidget extends StatelessWidget {
     onChanged: onChangedNivel,
     decoration: InputDecoration(
       border: UnderlineInputBorder(),
-      labelText: 'Nível',
+      labelText: 'Nível'.tr,
     ),
   );
 
@@ -105,7 +106,7 @@ class TodoFormWidget extends StatelessWidget {
     onChanged: onChangedImagem,
     decoration: InputDecoration(
       border: UnderlineInputBorder(),
-      labelText: 'Caminho da Imagem',
+      labelText: 'Caminho da Imagem'.tr,
     ),
   );
 
@@ -115,7 +116,7 @@ class TodoFormWidget extends StatelessWidget {
     onChanged: onChangedTreino,
     decoration: InputDecoration(
       border: UnderlineInputBorder(),
-      labelText: 'Treino',
+      labelText: 'Treino'.tr,
     ),
   );
 
@@ -126,7 +127,7 @@ class TodoFormWidget extends StatelessWidget {
             backgroundColor: MaterialStateProperty.all(Colors.black),
           ),
           onPressed: onSavedTodo,
-          child: Text('Save'),
+          child: Text('Salvar'.tr),
         ),
       );
 }

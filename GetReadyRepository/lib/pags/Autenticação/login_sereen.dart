@@ -1,4 +1,5 @@
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:testelogin/Model/user.dart';
 import 'package:testelogin/Service/auth.dart';
 import 'package:testelogin/Service/authnotifier.dart';
@@ -60,9 +61,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (!regExp.hasMatch(_users.email)) {
       // toast
-      toast("Enter a valid Email ID");
+      toast("Insira um Email válido".tr);
     } else if (_users.password.length < 8) {
-      toast('Password must have atleast 8 characters');
+      toast('Senha precisa ter no mínimo 8 caracteres'.tr);
     } else {
       // login function
       _authentication.login(_users, authNotifier, context);
@@ -138,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 30,
                         ),
                         Text(
-                          "Entrar",
+                          "Entrar".tr,
                           style: TextStyle(
                             fontSize: 25,
                             color: Colors.black,
@@ -258,7 +259,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   }),
               enabledBorder: InputBorder.none,
               focusedBorder: InputBorder.none,
-              hintText: 'Password',
+              hintText: 'Senha'.tr,
               hintStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Color.fromRGBO(255, 255, 255, 0.8352941176470589),
@@ -317,7 +318,7 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Não Possui uma Conta?',
+              'Não Possui uma Conta?'.tr,
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 16,
@@ -332,7 +333,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     context, MaterialPageRoute(builder: (_) => SignUpScreen()));
               },
               child: Text(
-                'Registe-se Aqui.',
+                'Registe-se Aqui.'.tr,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 19,

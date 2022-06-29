@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testelogin/pags/IMC/bmi_result_screen.dart';
+import 'package:testelogin/pags/IMC/imc_result.dart';
 
 class BMI_Screen extends StatefulWidget {
   @override
@@ -21,8 +22,23 @@ class _BMI_ScreenState extends State<BMI_Screen>
     return Scaffold(
       backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 0, 0, 1.0),
-        title: Text('Cálculo IMC'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors:[
+                  Colors.redAccent,
+                  Colors.pinkAccent,
+                ]
+            ),
+          ),
+        ),
+          title: Container(
+            alignment: Alignment.bottomLeft ,
+            child: Text(
+                "Cálculo IMC".tr,
+                style: TextStyle(fontSize: 22, color: Colors.white)
+            ),
+          )
       ),
       body: Column(
         children: [
@@ -51,7 +67,7 @@ class _BMI_ScreenState extends State<BMI_Screen>
                             ),
                             const SizedBox(height: 15.0,),
                             Text(
-                              "HOMEM",
+                              "HOMEM".tr,
                               style: TextStyle(
                                 fontSize: 20.0,
                                 color: Colors.white.withOpacity(0.8),
@@ -85,7 +101,7 @@ class _BMI_ScreenState extends State<BMI_Screen>
                             ),
                             const SizedBox(height: 15.0,),
                             Text(
-                              "MULHER",
+                              "MULHER".tr,
                               style: TextStyle(
                                 fontSize: 20.0,
                                 color: Colors.white.withOpacity(0.8),
@@ -182,7 +198,7 @@ class _BMI_ScreenState extends State<BMI_Screen>
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "PESO",
+                            "PESO".tr,
                             style: TextStyle(
                               fontSize: 20.0,
                               color: Colors.white.withOpacity(0.8),
@@ -242,7 +258,7 @@ class _BMI_ScreenState extends State<BMI_Screen>
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "IDADE",
+                            "IDADE".tr,
                             style: TextStyle(
                               fontSize: 20.0,
                               color: Colors.white.withOpacity(0.8),
@@ -316,16 +332,12 @@ class _BMI_ScreenState extends State<BMI_Screen>
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => BMIResultScreen(
-                      result: result,
-                      age: age,
-                      isMale: isMale,
-                    ),
+                    builder: (context) => ScoreScreen(bmiScore: result, age: age),
                   )
                 );
               },
-              child: const Text(
-                "CALCULAR",
+              child: Text(
+                "CALCULAR".tr,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 25.0,
