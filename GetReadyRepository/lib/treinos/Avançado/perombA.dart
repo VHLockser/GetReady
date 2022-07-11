@@ -1,16 +1,16 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'dart:ui';
 import 'package:testelogin/codsupl/round_info_container.dart';
 
-import '../admin/model/todo.dart';
-import '../admin/page/detalhes.dart';
-import '../admin/provider/todos.dart';
+import '../../admin/model/todo.dart';
+import '../../admin/page/detalhes.dart';
+import '../../admin/provider/todos.dart';
 
-class Costas extends StatefulWidget {
+class PerombAvancado extends StatefulWidget {
 
-  const Costas({
+  const PerombAvancado({
     Key key,
   }) : super(key: key);
 
@@ -18,7 +18,7 @@ class Costas extends StatefulWidget {
   _Workout_Screen createState() => _Workout_Screen();
 }
 
-class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
+class _Workout_Screen extends State<PerombAvancado>with TickerProviderStateMixin {
 
   AnimationController controller;
 
@@ -64,7 +64,7 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context){
     final provider = Provider.of<TodosProvider>(context);
-    final todos = provider.Costas;
+    final todos = provider.PernasOmbrosAvancado;
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -77,7 +77,7 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
                   height: 370.0,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/exercicios/costas.png'),
+                      image: AssetImage('assets/exercicios/tPeO3.png'),
                       fit: BoxFit.cover,
                       alignment: Alignment.center,
                     ),
@@ -119,7 +119,7 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
                         child: Text(
-                          'FULL - Costas\nTreino'.tr,
+                          'FULL - Pernas e Ombros\nTreino'.tr,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 28.0,
@@ -131,7 +131,7 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           RoundInfoContainer(
-                            title: '1-2',
+                            title: '2-3',
                             subtitle: 'Séries'.tr,
                           ),
                           _divider(),
@@ -142,7 +142,7 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
                           _divider(),
                           RoundInfoContainer(
                             title: 'Dificuldade'.tr,
-                            subtitle: 'Iniciante'.tr,
+                            subtitle: 'Avançado'.tr,
                           ),
                         ],
                       ),
@@ -213,8 +213,8 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
                       ),
                     ),
                     title: Text(dataexerc.Nome.tr),
-                    subtitle: Text(dataexerc.Nivel.tr),
-                    trailing: Icon(Icons.arrow_forward_ios_rounded, color: Colors.red),
+                    subtitle: Text(dataexerc.Musculo.tr),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded, color: Colors.red,),
                     onTap:(){
                       Navigator.push(
                           context,

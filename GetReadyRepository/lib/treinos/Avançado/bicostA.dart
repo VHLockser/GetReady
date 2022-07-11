@@ -1,16 +1,17 @@
+import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:provider/provider.dart';
+import 'package:testelogin/admin/model/todo.dart';
+import 'package:testelogin/admin/page/detailsteste.dart';
+import 'package:testelogin/admin/page/detalhes.dart';
 import 'package:testelogin/codsupl/round_info_container.dart';
+import 'package:provider/provider.dart';
+import 'package:testelogin/admin/provider/todos.dart';
+import 'package:get/get.dart';
 
-import '../admin/model/todo.dart';
-import '../admin/page/detalhes.dart';
-import '../admin/provider/todos.dart';
+class BicepsCostasAvancado extends StatefulWidget {
 
-class Costas extends StatefulWidget {
-
-  const Costas({
+  const BicepsCostasAvancado ({
     Key key,
   }) : super(key: key);
 
@@ -18,7 +19,7 @@ class Costas extends StatefulWidget {
   _Workout_Screen createState() => _Workout_Screen();
 }
 
-class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
+class _Workout_Screen extends State<BicepsCostasAvancado>with TickerProviderStateMixin {
 
   AnimationController controller;
 
@@ -61,10 +62,11 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context){
     final provider = Provider.of<TodosProvider>(context);
-    final todos = provider.Costas;
+    final todos = provider.BicepsCostasAvancado;
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -77,7 +79,7 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
                   height: 370.0,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/exercicios/costas.png'),
+                      image: AssetImage('assets/exercicios/tBeC3.png'),
                       fit: BoxFit.cover,
                       alignment: Alignment.center,
                     ),
@@ -85,28 +87,6 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
                       bottomLeft: Radius.circular(25.0),
                       bottomRight: Radius.circular(25.0),
                     ),
-                  ),
-                ),
-                Positioned(
-                  top: 20,
-                  left: 10,
-                  right: 10,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.chevron_left),
-                        iconSize: 30,
-                        color: Colors.transparent,
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.favorite),
-                        iconSize: 30,
-                        color: Colors.transparent,
-                        onPressed: () {},
-                      ),
-                    ],
                   ),
                 ),
                 Positioned(
@@ -119,7 +99,7 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
                         child: Text(
-                          'FULL - Costas\nTreino'.tr,
+                          'FULL - Biceps e Costas\nTreino'.tr,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 28.0,
@@ -131,7 +111,7 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           RoundInfoContainer(
-                            title: '1-2',
+                            title: '2-3',
                             subtitle: 'Séries'.tr,
                           ),
                           _divider(),
@@ -142,7 +122,7 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
                           _divider(),
                           RoundInfoContainer(
                             title: 'Dificuldade'.tr,
-                            subtitle: 'Iniciante'.tr,
+                            subtitle: 'Avançado'.tr,
                           ),
                         ],
                       ),
@@ -156,7 +136,7 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Exercicios'.tr, style: TextStyle(fontSize: 17.0),),
+                  Text('Exercicios'.tr, style: TextStyle(fontSize: 17.0, fontWeight: FontWeight. bold),),
                   ElevatedButton(
                     style: ButtonStyle(
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -189,42 +169,49 @@ class _Workout_Screen extends State<Costas>with TickerProviderStateMixin {
                           fontSize: 20),
                     ),
                   ),
-                  Text('Info+',style: TextStyle(fontSize: 17.0),),
+
+                  Text('Info+',style: TextStyle(fontSize: 17.0, fontWeight: FontWeight. bold)),
                 ],
               ),
             ),
-            Expanded(child:
-            ListView.builder(
-              physics: BouncingScrollPhysics(),
-              itemCount: todos.length,
-              itemBuilder: (BuildContext context, int index){
-                Todo dataexerc = todos[index];
-                return Card(
-                  child: ListTile(
-                    isThreeLine: true,
-                    leading: Container(
-                      width: 90.0,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(dataexerc.imagem),
-                          fit: BoxFit.cover,
+            Expanded(
+              child: ListView.builder(
+                physics: BouncingScrollPhysics(),
+                itemCount: todos.length,
+                itemBuilder: (BuildContext context, int index){
+                  Todo dataexerc = todos[index];
+
+                  return Card(
+                    child: Column(
+                      children: [
+                        ListTile(
+                          isThreeLine: true,
+                          leading: Container(
+                            width: 90.0,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(dataexerc.imagem),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
+                          title: Text(dataexerc.Nome.tr),
+                          subtitle: Text(dataexerc.Musculo.tr),
+                          trailing: Icon(Icons.arrow_forward_ios_rounded, color: Colors.red,),
+                          onTap:(){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder:(context) => App(dataexerc))
+                            );
+                          },
                         ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
+                      ],
                     ),
-                    title: Text(dataexerc.Nome.tr),
-                    subtitle: Text(dataexerc.Nivel.tr),
-                    trailing: Icon(Icons.arrow_forward_ios_rounded, color: Colors.red),
-                    onTap:(){
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder:(context) => App(dataexerc))
-                      );
-                    },
-                  ),
-                );
-              },
-            ),
+
+                  );
+                },
+              ),
             ),
           ],
         ),

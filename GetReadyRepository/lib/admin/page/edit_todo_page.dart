@@ -61,6 +61,9 @@ class _EditTodoPageState extends State<EditTodoPage> {
             child: TodoFormWidget(
               Nome: Nome,
               Informacao: Informacao,
+              Musculo: Musculo,
+              Nivel: Nivel,
+              imagem: imagem,
               onChangedNome: (Nome) => setState(() => this.Nome = Nome),
               onChangedInformacao: (Informacao) => setState(() => this.Informacao = Informacao),
               onChangedMusculo: (Musculo) => setState(() => this.Musculo = Musculo),

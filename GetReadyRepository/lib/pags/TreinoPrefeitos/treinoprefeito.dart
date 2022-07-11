@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:testelogin/treinos/peromb.dart';
-import 'package:testelogin/treinos/tripei.dart';
-import 'package:testelogin/treinos/workout_screen.dart';
-import 'package:testelogin/treinos/peromb.dart';
+import 'package:testelogin/treinos/Iniciante/peromb.dart';
+import 'package:testelogin/treinos/Iniciante/tripei.dart';
+import 'package:testelogin/treinos/Iniciante/bicost.dart';
+import 'package:testelogin/treinos/Iniciante/peromb.dart';
 
+import '../inicio.dart';
+import '../navegador.dart';
 import 'TreinosPreFeitosAvançado.dart';
 import 'TreinosPreFeitosMedio.dart';
 
@@ -16,6 +18,16 @@ class CategoryLista extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
       appBar: AppBar(
+          leading: IconButton (
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => Home()));
+            },
+          ),
+          automaticallyImplyLeading: false,
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -87,6 +99,11 @@ class CategoryLista extends StatelessWidget {
                     child: MaterialButton(
                       elevation: 10,
                       onPressed: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => CategoryListaMedio())
+
+                        );
                       },
                       child: Text(
                         "Intermediário".tr,
@@ -116,6 +133,11 @@ class CategoryLista extends StatelessWidget {
                     child: MaterialButton(
                       elevation: 10,
                       onPressed: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => CategoryListaAvancado())
+
+                        );
                       },
                       child: Text(
                         "Avançado".tr,

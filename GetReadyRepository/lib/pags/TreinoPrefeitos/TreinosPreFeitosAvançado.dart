@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:testelogin/treinos/peromb.dart';
-import 'package:testelogin/treinos/tripei.dart';
-import 'package:testelogin/treinos/workout_screen.dart';
-import 'package:testelogin/treinos/peromb.dart';
+import 'package:testelogin/pags/TreinoPrefeitos/treinoprefeito.dart';
+import 'package:testelogin/treinos/Avan%C3%A7ado/bicostA.dart';
+import 'package:testelogin/treinos/Avan%C3%A7ado/perombA.dart';
+import 'package:testelogin/treinos/Avan%C3%A7ado/tripeiA.dart';
+import 'package:testelogin/treinos/Iniciante/peromb.dart';
+import 'package:testelogin/treinos/Iniciante/tripei.dart';
+import 'package:testelogin/treinos/Iniciante/bicost.dart';
+import 'package:testelogin/treinos/Iniciante/peromb.dart';
+
+import '../navegador.dart';
+import 'TreinosPreFeitosMedio.dart';
 
 class CategoryListaAvancado extends StatelessWidget {
 
@@ -11,8 +18,19 @@ class CategoryListaAvancado extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: Colors.white,
       appBar: AppBar(
+          leading: IconButton (
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => Home()));
+            },
+          ),
+          automaticallyImplyLeading: false,
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -25,6 +43,7 @@ class CategoryListaAvancado extends StatelessWidget {
           ),
           title: Container(
             alignment: Alignment.bottomLeft ,
+
             child: Text(
                 "Treinos Pré-Feitos".tr,
                 style: TextStyle(fontSize: 22, color: Colors.white)
@@ -57,7 +76,11 @@ class CategoryListaAvancado extends StatelessWidget {
                   child: MaterialButton(
                     elevation: 10,
                     onPressed: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => CategoryLista())
 
+                      );
                     },
                     child: Text(
                       "Iniciante".tr,
@@ -84,6 +107,11 @@ class CategoryListaAvancado extends StatelessWidget {
                   child: MaterialButton(
                     elevation: 10,
                     onPressed: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => CategoryListaMedio())
+
+                      );
                     },
                     child: Text(
                       "Intermediário".tr,
@@ -159,7 +187,7 @@ class CategoryListaAvancado extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Workout_Screen())
+                              MaterialPageRoute(builder: (context) => BicepsCostasAvancado())
 
                           );
                         },
@@ -182,7 +210,7 @@ class CategoryListaAvancado extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               Image.asset(
-                                'assets/exercicios/tBeC.jpg',
+                                'assets/exercicios/tBeC3.png',
                                 height: 110,
                                 width: 350,
                                 fit: BoxFit.cover,
@@ -210,7 +238,7 @@ class CategoryListaAvancado extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) =>Tripei())
+                              MaterialPageRoute(builder: (context) =>TripeiAvancado())
                           );
                         },
 
@@ -232,7 +260,7 @@ class CategoryListaAvancado extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               Image.asset(
-                                'assets/exercicios/tTeP.jpg',
+                                'assets/exercicios/tTeP3.png',
                                 height: 110,
                                 width: 350,
                                 fit: BoxFit.cover,
@@ -260,7 +288,7 @@ class CategoryListaAvancado extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Peromb())
+                              MaterialPageRoute(builder: (context) => PerombAvancado())
                           );
                         },
 
@@ -282,7 +310,7 @@ class CategoryListaAvancado extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               Image.asset(
-                                'assets/exercicios/tPeO.jpg',
+                                'assets/exercicios/tPeO3.png',
                                 height: 110,
                                 width: 350,
                                 fit: BoxFit.cover,

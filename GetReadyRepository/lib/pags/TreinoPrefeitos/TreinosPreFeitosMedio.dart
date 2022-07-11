@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:testelogin/treinos/peromb.dart';
-import 'package:testelogin/treinos/tripei.dart';
-import 'package:testelogin/treinos/workout_screen.dart';
-import 'package:testelogin/treinos/peromb.dart';
+import 'package:testelogin/pags/TreinoPrefeitos/TreinosPreFeitosAvan%C3%A7ado.dart';
+import 'package:testelogin/pags/TreinoPrefeitos/treinoprefeito.dart';
+import 'package:testelogin/treinos/Iniciante/peromb.dart';
+import 'package:testelogin/treinos/Iniciante/tripei.dart';
+import 'package:testelogin/treinos/Iniciante/bicost.dart';
+import 'package:testelogin/treinos/Iniciante/peromb.dart';
+import 'package:testelogin/treinos/Intermediario/tripeiI.dart';
+
+import '../../treinos/Intermediario/bicostI.dart';
+import '../../treinos/Intermediario/perombI.dart';
+import '../navegador.dart';
 
 class CategoryListaMedio extends StatelessWidget {
 
@@ -13,6 +20,16 @@ class CategoryListaMedio extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+          leading: IconButton (
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => Home()));
+            },
+          ),
+          automaticallyImplyLeading: false,
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -57,6 +74,11 @@ class CategoryListaMedio extends StatelessWidget {
                   child: MaterialButton(
                     elevation: 10,
                     onPressed: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => CategoryLista())
+
+                      );
                     },
                     child: Text(
                       "Iniciante".tr,
@@ -112,6 +134,11 @@ class CategoryListaMedio extends StatelessWidget {
                   child: MaterialButton(
                     elevation: 10,
                     onPressed: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => CategoryListaAvancado())
+
+                      );
                     },
                     child: Text(
                       "Avançado".tr,
@@ -158,7 +185,7 @@ class CategoryListaMedio extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Workout_Screen())
+                              MaterialPageRoute(builder: (context) => BicepsCostasMedio())
 
                           );
                         },
@@ -181,14 +208,14 @@ class CategoryListaMedio extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               Image.asset(
-                                'assets/exercicios/tBeC.jpg',
+                                'assets/exercicios/cb.png',
                                 height: 110,
                                 width: 350,
                                 fit: BoxFit.cover,
                               ),
                               SizedBox(height: 6),
                               Text(
-                                'Iniciante: Bíceps e Costas'.tr,
+                                'Intermediário: Bíceps e Costas'.tr,
                                 style: TextStyle(fontSize: 20, color: Colors.white),
                               )
                             ],
@@ -209,7 +236,7 @@ class CategoryListaMedio extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) =>Tripei())
+                              MaterialPageRoute(builder: (context) =>TripeiMedio())
                           );
                         },
 
@@ -231,14 +258,14 @@ class CategoryListaMedio extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               Image.asset(
-                                'assets/exercicios/tTeP.jpg',
+                                'assets/exercicios/tTeP2.png',
                                 height: 110,
                                 width: 350,
                                 fit: BoxFit.cover,
                               ),
                               SizedBox(height: 4),
                               Text(
-                                'Iniciante: Tríceps e Peito'.tr,
+                                'Intermediário: Tríceps e Peito'.tr,
                                 style: TextStyle(fontSize: 20, color: Colors.white),
                               )
                             ],
@@ -259,7 +286,7 @@ class CategoryListaMedio extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Peromb())
+                              MaterialPageRoute(builder: (context) => PerombMedio())
                           );
                         },
 
@@ -281,14 +308,14 @@ class CategoryListaMedio extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               Image.asset(
-                                'assets/exercicios/tPeO.jpg',
+                                'assets/exercicios/tPeO2.png',
                                 height: 110,
                                 width: 350,
                                 fit: BoxFit.cover,
                               ),
                               SizedBox(height: 4),
                               Text(
-                                'Iniciante: Pernas e Ombros'.tr,
+                                'Intermediário: Pernas e Ombros'.tr,
                                 style: TextStyle(fontSize: 20, color: Colors.white),
                               )
                             ],

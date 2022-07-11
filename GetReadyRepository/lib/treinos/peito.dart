@@ -86,12 +86,6 @@ class _Workout_Screen extends State<Peito>with TickerProviderStateMixin {
                       bottomRight: Radius.circular(25.0),
                     ),
                   ),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 1, sigmaY: 2),
-                    child: Container(
-                      color: Colors.white.withOpacity(.123),
-                    ),
-                  ),
                 ),
                 Positioned(
                   top: 20,

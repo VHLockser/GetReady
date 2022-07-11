@@ -12,15 +12,6 @@ class BMIResultScreen extends StatelessWidget
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        /*Manual Way to create back arrow*/
-        // leading: IconButton(
-        //   onPressed: (){
-        //     Navigator.pop(context);
-        //   },
-        //   icon: Icon(
-        //     Icons.arrow_back_ios,
-        //   ),
-        // ),
         title:const Text(
           "BMI RESULT",
         ),

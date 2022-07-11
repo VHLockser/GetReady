@@ -34,7 +34,7 @@ class TodoWidget extends StatelessWidget {
           secondaryActions: [
             IconSlideAction(
               color: Colors.red,
-              caption: 'Deletar'.tr,
+              caption: 'Excluir'.tr,
               onTap: () => deleteTodo(context, todo),
               icon: Icons.delete,
             )
